@@ -1,50 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TÁXI Pai & Filho</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0d10">
+<title>TÁXI Pai & Filho — São Sebastião-SP</title>
 <style>
-body{font-family:Arial,sans-serif;background:#111827;margin:0;color:#fff;text-align:center}
-.card{max-width:520px;margin:25px auto;padding:28px 20px;background:#fff;color:#111827;border-radius:22px;box-shadow:0 8px 30px #0005}
-h1{margin:5px 0 4px;font-size:32px}
-h2{margin:0 0 18px;font-size:17px;font-weight:500;color:#555}
-p{line-height:1.45}
-.btn{display:block;text-decoration:none;padding:16px;margin:12px 0;border-radius:14px;font-size:18px;font-weight:bold}
-.wa{background:#25D366;color:#fff} .pix{background:#111827;color:#fff}
-.google{background:#f5f5f5;color:#111827} .call{background:#f2c400;color:#111827}
-.pixbox{display:none;margin-top:15px;padding:18px;border:2px solid #ddd;border-radius:16px}
-.pixbox img{width:250px;max-width:100%;height:auto}
-.key{word-break:break-all;background:#f4f4f4;padding:10px;border-radius:10px;font-size:13px}
-.copy{border:0;background:#111827;color:#fff;padding:12px 18px;border-radius:10px;font-weight:bold}
-.small{font-size:13px;color:#666}
+:root{--bg:#090b0e;--card:#15181d;--yellow:#ffd000;--white:#fff;--muted:#c8c8c8;--green:#20c763;--blue:#2878e8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#fff;font-family:Arial,sans-serif}
+.wrap{max-width:540px;margin:auto;padding:16px}
+.header{padding:18px 12px 16px;text-align:center;border:2px solid var(--yellow);border-radius:22px;background:linear-gradient(145deg,#171a1f,#08090b)}
+.logo-wrap{width:185px;margin:0 auto 8px;background:#fff;border-radius:18px;padding:5px}.logo-wrap img{display:block;width:100%;height:auto;border-radius:14px}.brand{font-size:30px;font-weight:900;color:var(--yellow);margin:3px 0}.city{font-weight:700}.tag{color:#ddd;margin:7px 0 0}
+h2{font-size:19px;color:var(--yellow);text-align:center;margin:23px 0 11px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.menu{border:1px solid #34383e;background:var(--card);color:#fff;text-decoration:none;border-radius:17px;padding:16px 9px;text-align:center;font-weight:800;min-height:108px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.menu:active{transform:scale(.98)}.ico{font-size:32px;margin-bottom:7px}.menu small{color:#aaa;font-weight:500;margin-top:4px}
+.section{display:none;margin-top:12px}.section.open{display:block}
+.item{background:#12151a;border:1px solid #30343a;border-radius:14px;padding:13px;margin:8px 0;text-align:left}
+.item strong{display:block;font-size:16px}.item small{display:block;color:#aaa;margin-top:4px;line-height:1.35}
+.item a{display:inline-block;margin-top:9px;padding:8px 11px;border-radius:9px;background:var(--yellow);color:#111;text-decoration:none;font-weight:800;font-size:13px}
+.back{width:100%;padding:11px;border:1px solid #555;border-radius:11px;background:#24282e;color:#fff;font-weight:700;margin-top:5px}
+.actions{display:grid;gap:10px;margin-top:18px}
+.btn{display:block;text-align:center;padding:16px;border-radius:15px;text-decoration:none;font-weight:800;font-size:17px;border:0}
+.pix{background:var(--yellow);color:#111}.whats{background:var(--green);color:#fff}.call{background:var(--blue);color:#fff}.google{background:#fff;color:#111}
+.pixbox{display:none;background:#111419;border:1px solid #4a4e55;border-radius:14px;padding:14px;text-align:center}
+.pixbox.open{display:block}.key{color:var(--yellow);font-weight:800;word-break:break-all;margin-top:5px}
+.copy{margin-top:9px;padding:10px 14px;border:0;border-radius:9px;font-weight:800}
+.note{text-align:center;color:#999;font-size:12px;line-height:1.5;margin:18px 4px}
 </style>
 </head>
 <body>
-<div class="card">
-<h1>🚕 TÁXI Pai & Filho</h1>
-<h2>São Sebastião - SP</h2>
-<p><b>Seu destino é o meu compromisso!</b></p>
+<div class="wrap">
+<header class="header">
+  <div class="logo-wrap"><img src="logotipo-taxi-conectado.png" alt="ConnecTÁXI — Associação dos Taxistas e Cooperados de São Sebastião"></div>
+  <div class="brand">TÁXI Pai &amp; Filho</div>
+  <div class="city">São Sebastião - SP</div>
+  <div class="tag">Seu destino é o meu compromisso!</div>
+</header>
 
-<a class="btn wa" href="https://wa.me/5512981578437" target="_blank">💬 WhatsApp — (12) 98157-8437</a>
-<a class="btn wa" href="https://wa.me/5512997560283" target="_blank">💬 WhatsApp — (12) 99756-0283</a>
+<h2>O QUE VOCÊ PROCURA?</h2>
+<div class="grid">
+  <button class="menu" onclick="show('food')"><div class="ico">🍔</div>Alimentos<br>e Bebidas<small>Onde comer</small></button>
+  <button class="menu" onclick="show('services')"><div class="ico">🛍️</div>Produtos<br>e Serviços<small>Comércio local</small></button>
+  <button class="menu" onclick="show('tourism')"><div class="ico">📍</div>Pontos<br>Turísticos<small>Conheça a cidade</small></button>
+  <button class="menu" onclick="show('hotels')"><div class="ico">🏨</div>Hotéis<br>e Pousadas<small>Onde ficar</small></button>
+</div>
 
-<a class="btn pix" href="#" onclick="document.getElementById('pix').style.display='block';return false;">💚 Pagar via Pix</a>
+<section id="food" class="section">
+<h2>🍔 ALIMENTOS E BEBIDAS</h2>
+<div class="item"><strong>Restaurantes</strong><small>Encontre opções de alimentação em São Sebastião</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Restaurantes+São+Sebastião+SP">Ver opções</a></div>
+<div class="item"><strong>Bares e Cafés</strong><small>Opções para lanches, cafés e bebidas</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Bares+Cafés+São+Sebastião+SP">Ver opções</a></div>
+<div class="item"><strong>Padarias e Lanchonetes</strong><small>Opções próximas ao passageiro</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Padarias+Lanchonetes+São+Sebastião+SP">Ver opções</a></div>
+<div class="item"><strong>Frutos do Mar</strong><small>Restaurantes especializados</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Frutos+do+Mar+São+Sebastião+SP">Ver opções</a></div>
+<div class="item"><strong>Delivery</strong><small>Pesquise estabelecimentos com entrega</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Delivery+São+Sebastião+SP">Ver opções</a></div>
+<button class="back" onclick="hideAll()">← Voltar aos menus</button>
+</section>
+
+<section id="services" class="section">
+<h2>🛍️ PRODUTOS E SERVIÇOS</h2>
+<div class="item"><strong>Doplaspel Embalagens e Limpeza</strong><small>Produtos de limpeza • Ponta da Cruz</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Doplaspel+Embalagens+e+Limpeza+São+Sebastião+SP">Ver no mapa</a></div>
+<div class="item"><strong>SS Comércio Fornecedora</strong><small>Loja de ferramentas • Centro</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=SS+Comércio+Fornecedora+São+Sebastião+SP">Ver no mapa</a></div>
+<div class="item"><strong>SOS Lava ou Seca</strong><small>Lavanderia Express • Centro</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=SOS+Lava+ou+Seca+São+Sebastião+SP">Ver no mapa</a></div>
+<div class="item"><strong>Vitácia Produtos Naturais</strong><small>Produtos naturais • Centro</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Vitácia+Produtos+Naturais+São+Sebastião+SP">Ver no mapa</a></div>
+<button class="back" onclick="hideAll()">← Voltar aos menus</button>
+</section>
+
+<section id="tourism" class="section">
+<h2>📍 PONTOS TURÍSTICOS</h2>
+<div class="item"><strong>Centro Histórico</strong><small>Orla, patrimônio histórico e cultural</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Centro+Histórico+São+Sebastião+SP">Ver rota</a></div>
+<div class="item"><strong>Maresias</strong><small>Praia e ecoturismo</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Praia+de+Maresias+São+Sebastião+SP">Ver rota</a></div>
+<div class="item"><strong>Juquehy</strong><small>Praia da Costa Sul</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Praia+de+Juquehy+São+Sebastião+SP">Ver rota</a></div>
+<div class="item"><strong>Guaecá</strong><small>Praia e natureza</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Praia+de+Guaecá+São+Sebastião+SP">Ver rota</a></div>
+<div class="item"><strong>Praça Pôr-do-Sol</strong><small>Ponto histórico, cultural e de lazer</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Praça+Pôr-do-Sol+São+Sebastião+SP">Ver rota</a></div>
+<div class="item"><strong>Mirante da Cruz</strong><small>Natureza e vista panorâmica</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Mirante+da+Cruz+São+Sebastião+SP">Ver rota</a></div>
+<div class="item"><strong>Convento Nossa Senhora do Amparo</strong><small>Histórico, cultural e religioso</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Convento+Nossa+Senhora+do+Amparo+São+Sebastião+SP">Ver rota</a></div>
+<div class="item"><strong>Casa de Câmara e Cadeia</strong><small>Patrimônio histórico e cultural</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Casa+de+Câmara+e+Cadeia+São+Sebastião+SP">Ver rota</a></div>
+<button class="back" onclick="hideAll()">← Voltar aos menus</button>
+</section>
+
+<section id="hotels" class="section">
+<h2>🏨 HOTÉIS E POUSADAS</h2>
+<div class="item"><strong>Pousada Villa Blu Maresias</strong><small>Maresias</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Pousada+Villa+Blu+Maresias+São+Sebastião+SP">Ver no mapa</a></div>
+<div class="item"><strong>Pousada Toca da Praia Maresias</strong><small>Maresias</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Pousada+Toca+da+Praia+Maresias+São+Sebastião+SP">Ver no mapa</a></div>
+<div class="item"><strong>Porto Grande Hotel &amp; Convention</strong><small>Centro</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Porto+Grande+Hotel+Convention+São+Sebastião+SP">Ver no mapa</a></div>
+<div class="item"><strong>Pousada Aparas</strong><small>São Sebastião</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Pousada+Aparas+São+Sebastião+SP">Ver no mapa</a></div>
+<div class="item"><strong>Pousada Bico Verde</strong><small>São Sebastião</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Pousada+Bico+Verde+São+Sebastião+SP">Ver no mapa</a></div>
+<div class="item"><strong>Hotel Canto do Rio</strong><small>Maresias</small><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Canto+do+Rio+Maresias+São+Sebastião+SP">Ver no mapa</a></div>
+<button class="back" onclick="hideAll()">← Voltar aos menus</button>
+</section>
+
+<h2>💳 PAGAMENTO E CONTATO</h2>
+<div class="actions">
+<button class="btn pix" onclick="document.getElementById('pix').classList.toggle('open')">💰 Pagar via Pix</button>
 <div id="pix" class="pixbox">
-  <h3>Pagamento via Pix</h3>
-  <p>Abra o app do seu banco e escaneie o QR Code abaixo:</p>
-  <img src="data:image/png;base64,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" alt="QR Code Pix">
-  <p class="small">Ou copie o código Pix Copia e Cola:</p>
-  <div class="key" id="pixcode">00020126360014br.gov.bcb.pix0114+55129975602835204000053039865802BR5919ROBERTO PAI E FILHO6013SAO SEBASTIAO62070503***63041E6F</div>
-  <br>
-  <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('pixcode').innerText);this.innerText='✅ Copiado!'">Copiar Pix Copia e Cola</button>
-  <p class="small">Chave Pix: +5512997560283</p>
+  <strong>Chave Pix (celular)</strong>
+  <div class="key">+55 12 99756-0283</div>
+  <button class="copy" onclick="copyPix()">📋 Copiar chave Pix</button>
+  <div id="msg" style="font-size:12px;color:#aaa;margin-top:7px"></div>
 </div>
-
-<a class="btn google" href="https://share.google/vlB783I3mQyUskZ9m" target="_blank">⭐ Avaliar no Google</a>
+<a class="btn whats" href="https://wa.me/5512981578437">💬 WhatsApp — (12) 98157-8437</a>
+<a class="btn whats" href="https://wa.me/5512997560283">💬 WhatsApp — (12) 99756-0283</a>
 <a class="btn call" href="tel:+5512997560283">📞 Ligar para o Táxi</a>
-
-<p class="small">Obrigado por viajar conosco! 🙏</p>
+<a class="btn google" target="_blank" href="https://share.google/vlB783I3mQyUskZ9m">⭐ Avaliar no Google</a>
 </div>
+
+<div class="note">
+Escaneie o QR Code ou aproxime seu celular da tag NFC para acessar este menu.<br>
+As opções de turismo e hospedagem são baseadas em informações públicas e podem mudar.
+</div>
+</div>
+<script>
+function show(id){
+ document.querySelectorAll('.section').forEach(x=>x.classList.remove('open'));
+ document.getElementById(id).classList.add('open');
+ document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+}
+function hideAll(){document.querySelectorAll('.section').forEach(x=>x.classList.remove('open'));window.scrollTo({top:0,behavior:'smooth'});}
+async function copyPix(){
+ const m=document.getElementById('msg');
+ try{await navigator.clipboard.writeText('+5512997560283');m.textContent='✓ Chave Pix copiada!';}
+ catch(e){m.textContent='Não foi possível copiar automaticamente.';}
+}
+</script>
 </body>
 </html>
